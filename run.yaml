@@ -1,0 +1,9 @@
+---
+- name: "Install docker and set up wireguard and pi-hole containers on a raspberry pi"
+  hosts: rpi0
+  become: true
+
+  roles:
+    - role: system
+    - role: geerlingguy.pip
+    - role: geerlingguy.docker_arm

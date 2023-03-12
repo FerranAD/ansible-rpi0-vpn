@@ -1,0 +1,13 @@
+- name: Configure IPv4 forwarding
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: 1
+    state: present
+    ignoreerrors: true
+    sysctl_set: true
+
+- name: Configure iptables masquerade
+  iptables:
+    table: nat
+    chain: POSTROUTING
+    jump: MASQUERADE

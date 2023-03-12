@@ -4,6 +4,7 @@ packages:
   - neofetch
   - speedtest-cli
   - htop
+  - vim
 
 ssh_port: 22
 
@@ -22,3 +23,7 @@ docker_users:
   - pi
 
 compose_version: "2.15.1"
+
+set_up_wifi: true
+
+tailscale_up_skip: false

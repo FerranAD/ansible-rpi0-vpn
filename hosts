@@ -1,2 +1,2 @@
 [home]
-rpi0 ansible_host=192.168.1.118 ansible_user=pi ansible_connection=ssh
+rpi0 ansible_host=147.161.69.75 ansible_user=pi ansible_connection=ssh

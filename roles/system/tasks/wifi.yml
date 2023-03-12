@@ -1,0 +1,24 @@
+- name: Set up basic wifi config
+  become: yes
+  lineinfile:
+    path: /etc/wpa_supplicant/wpa_supplicant.conf
+    line: "{{ item }}"
+    state: present
+  loop:
+    - 'ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev'
+    - 'update_config=1'
+    - 'country=ES'
+  when: set_up_wifi
+
+- name: Set wifi credentials
+  become: yes
+  blockinfile:
+    path: /etc/wpa_supplicant/wpa_supplicant.conf
+    block: |
+      network={
+        scan_ssid=1
+        ssid="{{ wifi_ssid }}"
+        psk="{{ wifi_passwd }}"
+      }
+    state: present
+  when: set_up_wifi
